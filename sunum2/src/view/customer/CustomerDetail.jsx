@@ -9,7 +9,15 @@ import { Button } from 'react-bootstrap';
 
 function CustomerDetail() {
 
-    const [detail, setDetail] = useState({});
+    let defaultValue = {
+        id:'',
+        companyName:'',
+        contactName:'',
+        contactTitle:''
+
+    }
+
+    const [detail, setDetail] = useState(defaultValue);
     const navigate = useNavigate();
     let { id } = useParams();
 
@@ -19,11 +27,8 @@ function CustomerDetail() {
 
     useEffect(() => {
 
-
         networkManager.getById('customers/' + id).then(result => {
-
-            setDetail(result);
-           
+            setDetail(result);           
 
         })
             .catch((err) => {
@@ -43,7 +48,7 @@ function CustomerDetail() {
                     Id
                 </Form.Label>
                 <Col>
-                    <Form.Control size="lg" type="text" placeholder="Large text" disabled value={detail.id} />
+                    <Form.Control size="lg" type="text"  disabled value={detail.id} />
                 </Col>
             </Row>
             <br/>
@@ -52,7 +57,7 @@ function CustomerDetail() {
                 Müşteri Adı
                 </Form.Label>
                 <Col>
-                    <Form.Control size="lg" type="text" placeholder="Large text" disabled value={detail.companyName} />
+                    <Form.Control size="lg" type="text"  disabled value={detail.companyName} />
                 </Col>
             </Row>
             <br/>
@@ -61,7 +66,7 @@ function CustomerDetail() {
                 İletişim Adı
                 </Form.Label>
                 <Col>
-                    <Form.Control size="lg" type="text" placeholder="Large text" disabled value={detail.contactName} />
+                    <Form.Control size="lg" type="text"  disabled value={detail.contactName} />
                 </Col>
             </Row>
             <br/>
@@ -70,7 +75,7 @@ function CustomerDetail() {
                 İletişim Ünvanı
                 </Form.Label>
                 <Col>
-                    <Form.Control size="lg" type="text" placeholder="Large text" disabled value={detail.contactTitle} />
+                    <Form.Control size="lg" type="text" disabled value={detail.contactTitle} />
                 </Col>
             </Row>
             <br/>

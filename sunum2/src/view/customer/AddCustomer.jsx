@@ -26,6 +26,7 @@ function AddCustomer() {
 
         console.log(newCustomer);
         networkManager.add('/customers', newCustomer).then(result => {
+  
             navigate('/customers');
         }).catch((err) => {
             console.log('Error =>', err)

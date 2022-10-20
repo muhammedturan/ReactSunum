@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import { networkManager } from '../../network/networkManager';
 import { useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 
 function UpdateCustomer() {
 
@@ -13,7 +14,7 @@ function UpdateCustomer() {
     const [companyName, setCompanyName] = useState('');
     const [contactName, setContactName] = useState('');
     const [contactTitle, setContactTitle] = useState('');
-
+    const navigate = useNavigate();
     let { id } = useParams();
 
     const updateCustomer = () => {
@@ -28,7 +29,7 @@ function UpdateCustomer() {
         console.log(newCustomer);
         networkManager.update('/customers/' + id, newCustomer).then(result => {
 
-          console.log('result =>', result)
+            navigate('/customers');
         }).catch((err) => {
             console.log('Error =>', err)
         })
