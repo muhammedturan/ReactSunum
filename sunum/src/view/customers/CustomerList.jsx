@@ -19,6 +19,7 @@ function CustomerList() {
 
 
     }
+    
     const detailCustomer = (id) => {
         navigate('/customers/detail/' + id);
     }
