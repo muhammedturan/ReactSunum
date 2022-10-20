@@ -16,8 +16,8 @@ function Header() {
                 defaultSelectedKeys={['1']}
 
             >
-                <Menu.Item key={1}><Link to='/admin/customers'>Customers</Link> </Menu.Item>
-                <Menu.Item key={2}><Link to='/admin/addcustomer'>Add Customer</Link></Menu.Item>
+                <Menu.Item key={1}><Link to='/customers'>Customers</Link> </Menu.Item>
+                <Menu.Item key={2}><Link to='/addcustomer'>Add Customer</Link></Menu.Item>
                 <Menu.Item key={3}>Item3</Menu.Item>
                 <Menu.Item key={4}>Item4</Menu.Item>
             </Menu>

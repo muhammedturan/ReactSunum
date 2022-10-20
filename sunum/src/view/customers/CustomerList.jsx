@@ -1,16 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import { networkManager } from '../../network/networkManager';
 import { Button, Table } from 'antd';
+import { SearchOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function CustomerList() {
 
+    const navigate = useNavigate();
     const [customers, setCustomers] = useState([]);
     const deleteCustomer = (id) => {
-        console.log(id);
+      
+        networkManager.delete('customers/' + id).then(result => {
+            getCustomers();
+        })
+            .catch((err) => {
+                console.log('Error =>', err)
+            })
+
+
+    }
+    const detailCustomer = (id) => {
+        navigate('/customers/detail/' + id);
     }
 
     useEffect(() => {
+        getCustomers();
+    }, [])
 
+
+    const getCustomers = () => {
 
         networkManager.getAll('customers')
             .then(result => {
@@ -20,7 +38,7 @@ function CustomerList() {
                 console.log('Error =>', err)
             })
 
-    }, [])
+    }
 
 
     const columns = [
@@ -47,15 +65,21 @@ function CustomerList() {
         }
         ,
         {
-            title: 'Delete',
+            title: 'Silme',
             dataIndex: 'id',
-            render: (id) => <Button onClick={() => deleteCustomer(id)} type='primary' danger>Delete</Button>
+            render: (id) => <Button icon={<DeleteOutlined />} shape="circle" onClick={() => deleteCustomer(id)} type='primary' danger></Button>
         }
         ,
         {
             title: 'Detay',
             dataIndex: 'id',
-            render: () => <Button type='primary'>Detay</Button>
+            render: (id) => <Button onClick={() => detailCustomer(id)} type='primary' shape="circle" icon={<SearchOutlined />}></Button>
+        }
+        ,
+        {
+            title: 'Duzenleme',
+            dataIndex: 'id',
+            render: () => <Button icon={<EditOutlined />} shape="circle" type='primary'></Button>
         }
 
     ]

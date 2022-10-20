@@ -19,7 +19,17 @@ export const networkManager = {
     },
 
     getById: async (url) => {
+        let resultData = [];
+      
+        await axiosInstance.get(url)
+            .then(res => {
+                resultData = res.data;
+            })
+            .catch((err) => {
+                throw err
+            })
 
+        return resultData;
 
     },
 
@@ -40,7 +50,17 @@ export const networkManager = {
 
     },
     delete: async (url) => {
+        let resultData = [];
+        await axiosInstance.delete(url)
+            .then(res => {
 
+                resultData = res.data;
+            })
+            .catch((err) => {
+                throw err
+            })
+
+        return resultData;
 
     }
 

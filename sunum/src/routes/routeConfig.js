@@ -1,15 +1,20 @@
 import AddCustomer from "../view/customers/AddCustomer";
+import CustomerDetail from "../view/customers/CustomerDetail";
 import CustomerList from "../view/customers/CustomerList";
 
 export const routeConfig = 
 [
     {
-        path:'/admin/customers',
+        path:'/customers',
         element:<CustomerList/>
     },
     {
-        path:'/admin/addcustomer',
+        path:'/addcustomer',
         element:<AddCustomer/>
+    },    
+    {
+        path:'/customers/detail/:id',
+        element:<CustomerDetail/>
     },
    
 
