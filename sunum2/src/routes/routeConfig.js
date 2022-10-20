@@ -3,18 +3,19 @@ import CustomerDetail from "../view/customer/CustomerDetail";
 import CustomerList from "../view/customer/CustomerList";
 import UpdateCustomer from "../view/customer/UpdateCustomer";
 import Dashboard from "../view/layout/Dashboard";
+import Index from "../view/layout/Index";
 import Login from "../view/layout/Login";
 
 export const routeConfig =
     [
         {
             path: '/',
-            element: <Login />
+            element: <Index />
         },
-        {
-            path: '/dashboard',
-            element: <Dashboard />
-        },
+        // {
+        //     path: '/dashboard',
+        //     element: <Dashboard />
+        // },
         {
             path: '/customers',
             element: <CustomerList />
