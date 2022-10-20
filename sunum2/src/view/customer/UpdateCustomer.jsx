@@ -65,7 +65,7 @@ function UpdateCustomer() {
                     Id
                 </Form.Label>
                 <Col>
-                    <Form.Control size="lg" type="text"  onChange={(e) => setCompanyId(e.target.value)} value={companyId} />
+                    <Form.Control size="lg" type="text"  onChange={(e) => setCompanyId(e.target.value)} value={companyId} disabled/>
                 </Col>
             </Row>
             <br/>
