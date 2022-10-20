@@ -4,14 +4,18 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { networkManager } from '../../network/networkManager';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
 function CustomerDetail() {
 
     const [detail, setDetail] = useState({});
-
+    const navigate = useNavigate();
     let { id } = useParams();
 
-
+    const navigateBack = () => {
+        navigate(-1);
+    }
 
     useEffect(() => {
 
@@ -67,6 +71,16 @@ function CustomerDetail() {
                 </Form.Label>
                 <Col>
                     <Form.Control size="lg" type="text" placeholder="Large text" disabled value={detail.contactTitle} />
+                </Col>
+            </Row>
+            <br/>
+            <Row>
+                <Form.Label column="lg" lg={2}>
+
+                </Form.Label>
+                <Col>
+                    <Button onClick={() => navigateBack()} variant="danger">Geri</Button>
+                   
                 </Col>
             </Row>
 
