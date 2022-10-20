@@ -45,9 +45,24 @@ export const networkManager = {
         return resultData;
 
     },
-    update: async (url) => {
+    update: async (url, data) => {
+        let resultData = [];
+        await axiosInstance.put(url,{
+            id:data.id,
+            companyName:data.companyName,
+            contactName:data.contactName,
+            contactTitle: data.contactTitle
 
+          })
+            .then(res => {
 
+                resultData = res.data;
+            })
+            .catch((err) => {
+                throw err
+            })
+
+        return resultData;
     },
     delete: async (url) => {
         let resultData = [];

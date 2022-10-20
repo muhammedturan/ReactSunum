@@ -8,6 +8,7 @@ import Header from './view/layout/Header';
 import LoginCard from './view/layout/LoginCard';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from './routes/routeConfig';
+import AddCustomer from './view/customer/AddCustomer';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
             }
           </Routes>
 
-
+{/* <AddCustomer/> */}
         {/* <CustomerList/> */}
         {/* <CustomerDetail/> */}
         {/* <Row>

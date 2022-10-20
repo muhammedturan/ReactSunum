@@ -27,6 +27,10 @@ function CustomerList() {
         navigate('/customers/detail/' + id);
     }
 
+    const updateCustomer = (id) => {
+        navigate('/customers/update/' + id);
+    }
+
     useEffect(() => {
         getCustomers();
     }, [])
@@ -94,7 +98,7 @@ function CustomerList() {
                                 <td> {item.contactTitle}</td>
                                 <td> <Button onClick={() => deleteCustomer(item.id)}  variant="danger" >Sil</Button></td>
                                 <td> <Button onClick={() => detailCustomer(item.id)}  variant="info" >Detay</Button></td>
-                                <td> <Button onClick={() => detailCustomer(item.id)}  variant="warning" >Düzenle</Button></td>
+                                <td> <Button onClick={() => updateCustomer(item.id)}  variant="warning" >Düzenle</Button></td>
                             </tr>
                         })
                     }
